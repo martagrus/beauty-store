@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ac01d24e4e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <title>Beauty Store</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    <nav id="nav">
+        <!-- <div id="nav-left">
+            <a>SEARCH <span><i class="fas fa-search"></i></span></a>
+            <input id="searchInput" type="text" placeholder="What are you looking for?">
+        </div> -->
+        <div class="nav-right">
+            <a href="#products" id="nav-product" class="nav-item">PRODUCTS</a>
+            <a href="#wish-list" id="nav-wish" class="nav-item">WISH LIST 
+                <span>
+                    <i class="far fa-star nav-icon" id="nav-star">
+                        <span id="star-no"></span>
+                    </i>
+                </span>
+            </a>
+            <a href="#cart" id="nav-cart" class="nav-item">YOUR CART 
+                <span>
+                    <i class="fas fa-shopping-basket nav-icon" id="nav-cart-icon">
+                        <span id="cart-no"></span>
+                    </i>
+                </span>
+            </a>
+        </div>
+    </nav>
+    <header id="header">
+        <h3>SHOP FOR THE STUFF YOU'LL LOVE</h3>
+    </header>
+    <main id="main-pic" class="main">
+        <div class="welcome">
+            <h1>WELCOME TO THE BEAUTY STORE</h1>
+            <h2>YOUR ONE-STOP SHOP FOR SKINCARE</h2>
+            <button id="welcome-btn">START SHOPPING</button>
+        </div> 
+    </main>
+    <section id="products">
+        <div class="quotes-container">
+            <div class="quotes">
+                <p>"Real beauty is to be true to oneself." Laetitia Casta</p>
+            </div>
+            <div class="quote-decor"></div>
+        </div>
+        <div class="product-container">
+            <div class="box" id="hair">HAIR</div>
+            <div class="box" id="face">FACE</div>
+            <div class="box" id="body">BODY</div>
+            <div class="box" id="accessories">ACCESSORIES</div>
+            <div class="box" id="makeup">MAKEUP</div>
+            <div class="box" id="sets">SETS</div>
+        </div>
+    </section>
+    <section id="selected-category">
+        <div id="selected-quotes" class="quotes-container">
+            <div class="quotes">
+                <p id="quote"></p>
+            </div>
+            <div class="quote-decor"></div>
+        </div>
+        <div class="product-container" id="prodBox"></div>  
+    </section>
+    <section id="wish-list" class="big-container">
+        <h4>WISH LIST <span>IS EMPTY!</span></h4>
+        <div class="product-container"></div>
+    </section>
+    <section id="cart" class="big-container">
+        <h4>YOUR CART <span>IS EMPTY!</span></h4>
+        <div class="product-container"></div>
+    </section>
+    <section id="contact" class="big-container">
+        <h4>CONTACT US</h4>
+        <div>Find us on 
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+             and 
+             <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></a>
+        </div>
+        <a href="tel:1-555-555-5555">Call us: 1-555-555-5555</a>
+        <a href="mailto:contact@beautyshop.com">Write us: contact@beautyshop.com</a>
+    </section>
+    <section id="faq" class="big-container">
+        <h4>FAQ</h4>
+        <ol>
+            <li>Who are you?</li>
+            <li>How do I buy?</li>
+            <li>Can I return stuff?</li>
+            <li>How do you ship stuff?</li>
+        </ol>
+    </section>
+    <footer id="footer">
+        <p>&copy Marta Grus/ 2020</p>
+        <div>
+            <a href="#contact" id="contact-btn">CONTACT</a>
+            <a href="#faq" id="faq-btn">FAQ</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
