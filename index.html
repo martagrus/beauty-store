@@ -19,18 +19,10 @@
         <div class="nav-right">
             <a href="#products" id="nav-product" class="nav-item">PRODUCTS</a>
             <a href="#wish-list" id="nav-wish" class="nav-item">WISH LIST 
-                <span>
-                    <i class="far fa-star nav-icon" id="nav-star">
-                        <span id="star-no"></span>
-                    </i>
-                </span>
+                <span><i class="far fa-star nav-icon" id="nav-star"><span id="star-no"></span></i></span>
             </a>
             <a href="#cart" id="nav-cart" class="nav-item">YOUR CART 
-                <span>
-                    <i class="fas fa-shopping-basket nav-icon" id="nav-cart-icon">
-                        <span id="cart-no"></span>
-                    </i>
-                </span>
+                <span><i class="fas fa-shopping-basket nav-icon" id="nav-cart-icon"><span id="cart-no"></span></i></span>
             </a>
         </div>
     </nav>
@@ -51,7 +43,7 @@
             </div>
             <div class="quote-decor"></div>
         </div>
-        <div class="product-container">
+        <div id="products-container" class="product-container">
             <div class="box" id="hair">HAIR</div>
             <div class="box" id="face">FACE</div>
             <div class="box" id="body">BODY</div>
@@ -60,22 +52,73 @@
             <div class="box" id="sets">SETS</div>
         </div>
     </section>
+
     <section id="selected-category">
-        <div id="selected-quotes" class="quotes-container">
-            <div class="quotes">
-                <p id="quote"></p>
-            </div>
-            <div class="quote-decor"></div>
+        <div id="hair-prods" class="category-container">
+            <div id="hair-quotes"></div>
+            <div class="product-container" id="hair-box"></div>  
         </div>
-        <div class="product-container" id="prodBox"></div>  
+        <div id="face-prods" class="category-container">
+            <div id="face-quotes"></div>
+            <div class="product-container" id="face-box"></div>  
+        </div>
+        <div id="body-prods" class="category-container">
+            <div id="body-quotes"></div>
+            <div class="product-container" id="body-box"></div>  
+        </div>
+        <div id="acc-prods" class="category-container">
+            <div id="acc-quotes"></div>
+            <div class="product-container" id="acc-box"></div>
+        </div>
+        <div id="makeup-prods" class="category-container">
+            <div id="makeup-quotes"></div>
+            <div class="product-container" id="makeup-box">
+                <div class="box" id="foundation">FOUNDATION</div>
+                <div class="box" id="eyeshadow">EYESHADOW</div>
+                <div class="box" id="eyeliner">EYELINER</div>
+                <div class="box" id="mascara">MASCARA</div>
+                <div class="box" id="blush">BLUSH</div>
+                <div class="box" id="lipstick">LIPSTICK</div>
+            </div>  
+        </div>
+        <div id="foundation-prods" class="category-container">
+            <div id="foundation-quotes"></div>
+            <div class="product-container" id="foundation-box"></div>  
+        </div>
+        <div id="eyeshadow-prods" class="category-container">
+            <div id="eyeshadow-quotes"></div>
+            <div class="product-container" id="eyeshadow-box"></div>  
+        </div>
+        <div id="eyeliner-prods" class="category-container">
+            <div id="eyeliner-quotes"></div>
+            <div class="product-container" id="eyeliner-box"></div>  
+        </div>
+        <div id="mascara-prods" class="category-container">
+            <div id="mascara-quotes"></div>
+            <div class="product-container" id="mascara-box"></div>  
+        </div>
+        <div id="blush-prods" class="category-container">
+            <div id="blush-quotes"></div>
+            <div class="product-container" id="blush-box"></div>  
+        </div>
+        <div id="lipstick-prods" class="category-container">
+            <div id="lipstick-quotes"></div>
+            <div class="product-container" id="lipstick-box"></div>  
+        </div>
+        <div id="sets-prods" class="category-container">
+            <div id="sets-quotes"></div>
+            <div class="product-container" id="sets-box"></div>  
+        </div>
     </section>
+
     <section id="wish-list" class="big-container">
-        <h4>WISH LIST <span>IS EMPTY!</span></h4>
-        <div class="product-container"></div>
+        <h4>WISH LIST <span id="wish-span">IS EMPTY!</span></h4>
+        <ol id="fav-list"></ol>
     </section>
     <section id="cart" class="big-container">
-        <h4>YOUR CART <span>IS EMPTY!</span></h4>
-        <div class="product-container"></div>
+        <h4>YOUR CART <span id="cart-span">IS EMPTY!</span></h4>
+        <ol id="cart-list"></ol>
+        <div id="balance"></div>
     </section>
     <section id="contact" class="big-container">
         <h4>CONTACT US</h4>
@@ -90,10 +133,10 @@
     <section id="faq" class="big-container">
         <h4>FAQ</h4>
         <ol>
-            <li>Who are you?</li>
+            <li>Who are we?</li>
             <li>How do I buy?</li>
-            <li>Can I return stuff?</li>
-            <li>How do you ship stuff?</li>
+            <li>Can I return the stuff?</li>
+            <li>How do you ship the stuff?</li>
         </ol>
     </section>
     <footer id="footer">
@@ -103,7 +146,6 @@
             <a href="#faq" id="faq-btn">FAQ</a>
         </div>
     </footer>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>

@@ -118,7 +118,7 @@ h3 {
     background-color: rgba(63,232,251,0.6);
 }
 
-#quote, .quotes p {
+.quotes p {
     text-align: right;
     padding: 20% 5% 0 0;
     font-style: italic;
@@ -153,10 +153,19 @@ h3 {
 
 #selected-category{
     min-height: 70vh;
-    display: none;
+    display: flex;
     position: relative;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#foundation, #eyeshadow, #eyeliner, #mascara, #blush, #lipstick {
+    display: none;
 }
 
 .box {
@@ -170,7 +179,7 @@ h3 {
     cursor: pointer;
 }
 
-.product-box div{
+.box div{
     margin-top: 15%;
 }
 
@@ -185,7 +194,7 @@ h3 {
 }
 
 .big-container {
-    height: 60vh;
+    min-height: 60vh;
     width: 90vw;
     margin: 5vh 5vw;
     display: none;
@@ -194,6 +203,28 @@ h3 {
     justify-content: center;
     background-color: #3FE8FB;
     font-size: 4vh;
+}
+
+#fav-list, #cart-list {
+    width: 100%;
+    margin-top: 3%;
+    margin-left: 3%;
+    line-height: 120%;
+}
+
+#fav-list li {
+    font-size: 3vh;
+}
+
+#cart-list li span {
+    margin-right: 3%;
+    font-size: 3vh;
+}
+
+#balance {
+    margin-top: 3%;
+    margin-left: 70%;
+    font-size: 3vh;
 }
 
 #contact div {
@@ -280,7 +311,7 @@ footer div a {
 
     .quotes-container {
         height: 30vh;
-        margin: 0 0 20% 10%;
+        margin: 0 10% 20% 10%;
     }
 
     .quotes {
@@ -292,6 +323,10 @@ footer div a {
         grid-template-columns: 28% 28% 28%;
         column-gap: 10%;
         justify-content: unset;
+    }
+
+    #fav-list li, #cart-list li span, #balance {
+        font-size: 4vh;
     }
 
     #contact div, #contact a {
@@ -333,6 +368,10 @@ footer div a {
         font-size: 2.5vh;
     }
 
+    .quotes-container {
+        margin: 0 10% 20% 0%;
+    }
+
     .quotes {
         width: 30vw;
     }
@@ -351,6 +390,10 @@ footer div a {
     }
 
     #selected-category {
+        flex-direction: row;
+    }
+
+    .category-container {
         flex-direction: row;
     }
 

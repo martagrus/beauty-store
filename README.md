@@ -1,5 +1,5 @@
 ## Progress
-Page is still in developement
+Page is still in development
 
 ## Built with
 HTML, CSS, JS
