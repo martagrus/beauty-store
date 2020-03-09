@@ -205,13 +205,13 @@ createBox = (name, price, boxId) => {
 
     let buyBtn = document.createElement('i')
     buyBtn.classList.add('fas', 'fa-plus')
-    buyBtn.id = "buy" + prodId
-    buyBtn.title = "ADD TO CART"
+    buyBtn.id = 'buy' + prodId
+    buyBtn.title = 'ADD TO CART'
 
     let favBTN = document.createElement('i')
     favBTN.classList.add('fas', 'fa-star')
-    favBTN.id = "fav" + prodId
-    favBTN.title = "ADD TO FAVOURITES"
+    favBTN.id = 'fav' + prodId
+    favBTN.title = 'ADD TO FAVOURITES'
    
     iconBox.appendChild(favBTN)
     iconBox.appendChild(buyBtn)
@@ -220,7 +220,7 @@ createBox = (name, price, boxId) => {
     box.appendChild(iconBox)
     bigBox.appendChild(box)
     addFavourite();
-    addToCart();
+    handleCart();
     prodId ++
 }
 
@@ -424,10 +424,12 @@ openLipstick = () => {
     lipstickProds.style.display = 'flex';
 }
 
-getSets = () => {
+getSets = async() => {
     quoteId ='sets-quotes';
     boxId = 'sets-box';
     phraseText = '"I believe in manicures, I believe in overdressing. I believe in primping at leisure and wearing lipstick." Audrey Hepburn';
+    let prod = await axios.get("https://beauty-shop-9b5ab.firebaseio.com/.json");
+    prod.data.Sets.forEach(x => createBox(x.name, x.price, boxId));
     createPhrase(quoteId, phraseText); 
 }
 
@@ -470,7 +472,7 @@ addFavourite = () => {
     })  
 }
 
-addToCart = () => {
+handleCart = () => {
     let plus = document.getElementById('buy'+prodId)
     let prod = document.getElementById(prodId)
     let priceOfItem = document.getElementById('price'+prodId).innerText
@@ -483,10 +485,16 @@ addToCart = () => {
     let itemsName = document.createElement('span')
     let priceToPay = document.createElement('span')
     priceToPay.classList.add('balance')
+    let addItemBtn = document.createElement('span')
+    addItemBtn.innerText = '+'
+    addItemBtn.style.cursor = 'pointer'
+    let substractItemBtn = document.createElement('span')
+    substractItemBtn.innerText = '-'
+    substractItemBtn.style.cursor = 'pointer'
+    
     let itemsBought = 0
 
-    plus.addEventListener("click", function(){
-        plus.style.color = 'goldenrod'
+    addToCart = () => {
         navCart.style.color = 'goldenrod'
         itemsBought += 1
         let no = Number(cartNo.innerHTML)
@@ -497,17 +505,61 @@ addToCart = () => {
         itemsName.innerText = prod.firstChild.innerHTML
         itemsNo.innerText = itemsBought
         
+        boughtItem.appendChild(addItemBtn)
         boughtItem.appendChild(itemsNo)
+        boughtItem.appendChild(substractItemBtn)
         boughtItem.appendChild(itemsName)
         boughtItem.appendChild(priceToPay)
         buys.appendChild(boughtItem)
 
         document.getElementById("cart-span").style.display = "none"
-        balance();
-    })
+        cartNo.style.display = 'inline'
+        boughtItem.style.display = 'block'
+        document.getElementById('balance').style.display = 'block'
+
+        countBalance();
+    }
+
+    addItem = () => {
+        let no = Number(cartNo.innerHTML)
+        no +=1
+        cartNo.style.display = 'inline'
+        cartNo.innerHTML = no
+        itemsBought +=1
+        itemsNo.innerHTML = itemsBought
+        price = (priceOfItem.slice(0,-2)*itemsBought).toFixed(2)
+        priceToPay.innerText =  price + "zł"
+        
+        countBalance();
+    }
+
+    substractItem = () => {
+        let no = Number(cartNo.innerHTML)
+        no -=1
+        if(no<=0){
+            no=0
+            cartNo.style.display = 'none'
+            navCart.style.color = 'black'
+        }
+        cartNo.innerHTML = no
+        itemsBought -=1
+        if(itemsBought<=0){
+            itemsBought=0
+            boughtItem.style.display = 'none'
+        }
+        itemsNo.innerHTML = itemsBought
+        price = (priceOfItem.slice(0,-2)*itemsBought).toFixed(2)
+        priceToPay.innerText =  price + "zł"
+        
+        countBalance();
+    }
+
+    plus.addEventListener("click", addToCart)
+    addItemBtn.addEventListener("click", addItem)
+    substractItemBtn.addEventListener("click", substractItem)
 }
 
-balance = () => {
+countBalance = () => {
     let balance = document.getElementById('balance')
     let prices = document.getElementsByClassName('balance')
     let lista = []
@@ -518,6 +570,11 @@ balance = () => {
 
     totalBalance = lista.reduce((a, b) => a+b)
     balance.innerText = "Total: " + totalBalance.toFixed(2) + "zł"
+
+    if(totalBalance === 0) {
+        balance.style.display = 'none'
+        document.getElementById("cart-span").style.display = 'inline'
+    }
 }
 
 document.addEventListener('DOMContentLoaded', main);

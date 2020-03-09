@@ -184,13 +184,10 @@ h3 {
 }
 
 .icons {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-.fa-plus {
-    margin-left: 80%;
 }
 
 .big-container {
@@ -213,12 +210,12 @@ h3 {
 }
 
 #fav-list li {
-    font-size: 3vh;
+    font-size: 2.5vh;
 }
 
 #cart-list li span {
     margin-right: 3%;
-    font-size: 3vh;
+    font-size: 2.5vh;
 }
 
 #balance {
